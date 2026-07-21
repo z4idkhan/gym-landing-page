@@ -91,7 +91,7 @@ export default function Hero({ config }: { config: typeof siteConfig }) {
                   </p>
                 </motion.div>
 
-                <motion.p
+                <motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: '-100px' }}
@@ -101,7 +101,7 @@ export default function Hero({ config }: { config: typeof siteConfig }) {
                   <p className="text-lg text-gray-300 max-w-xl">
                     Where chalk flies, weights bend, and legends are forged. Experience hardcore training that delivers real results - no machines, no mirrors, no mercy.
                   </p>
-                </motion.p>
+                </motion.div>
 
                 <motion.div
                   initial="hidden"
