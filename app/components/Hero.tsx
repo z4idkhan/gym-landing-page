@@ -147,14 +147,13 @@ export default function Hero({ config }: { config: typeof siteConfig }) {
                   <div className="relative w-full max-w-sm mx-auto lg:max-w-md aspect-[9/16] rounded-xl overflow-hidden bg-gray-900 shadow-2xl">
                     {/* In production, this would be a video element */}
                     <video
+  src="/videos/gym-background.mp4"
   autoPlay
+  muted
   loop
   playsInline
-  controls={false}
   className="absolute inset-0 w-full h-full object-cover"
->
-  <source src="/videos/gym-background.mp4" type="video/mp4" />
-</video>
+/>
                     {/* Overlay for dark, gritty feel */}
                     <div className="absolute inset-0 bg-black/30"></div>
                   </div>
