@@ -1,12 +1,10 @@
-# Gym Website Template - Next.js 14 (Multi-Page)
-
-A reusable Next.js website template for gym/fitness centers with multi-page architecture. Built with TypeScript, Tailwind CSS, and Framer Motion for lightweight animations.
+# Gym Website
 
 ## 🌟 Key Feature: Multi-Page Architecture
 
 Unlike single-page websites, this template uses a multi-page approach for better SEO, faster initial loads, and improved user experience. Each section has its own dedicated page with clean, semantic URLs.
 
-## 📸 Main Focus: Gym Showcase
+## Main Focus: Gym Showcase
 
 The **"Gym Tour"** page is specifically designed to showcase what your gym looks like and your equipment - exactly as requested! This is the main highlight where you can display:
 - Exterior and interior photos
@@ -17,7 +15,7 @@ The **"Gym Tour"** page is specifically designed to showcase what your gym looks
 
 Simply replace the placeholder images in `/public/images/gym/` with your actual gym photos.
 
-## 🏗️ Page Structure
+##  Page Structure
 
 - **/** - Home (overview with key highlights)
 - **/about** - About your gym, mission, and values
@@ -36,7 +34,7 @@ Simply replace the placeholder images in `/public/images/gym/` with your actual 
 - [Framer Motion](https://www.framer.com/motion/) (for animations)
 - Content driven by `/data/site-config.ts`
 
-## 🖼️ Gym Tour Customization
+## Gym Tour Customization
 
 To showcase your gym:
 
@@ -56,7 +54,7 @@ To showcase your gym:
    - Amenities (sauna, steam, etc.)
    - Members working out (with permission)
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (version 16.0 or higher)
@@ -104,7 +102,7 @@ To create a website for a specific gym client, you only need to:
    - Run `npm run dev` to see your changes in real-time
    - Build for production with `npm run build`
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 /app                    # Main Next.js application (App Router)
