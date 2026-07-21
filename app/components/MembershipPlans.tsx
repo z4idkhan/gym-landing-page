@@ -30,7 +30,7 @@ export default function MembershipPlans({ config }: MembershipPlansProps) {
   return (
     <>
       <section id="membership" className="py-20 bg-gray-900 dark:bg-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             ref={ref}
             className={`${isInView ? 'animate-fade-in' : ''} mb-12 text-4xl font-bold text-center text-red-200`}
@@ -41,7 +41,7 @@ export default function MembershipPlans({ config }: MembershipPlansProps) {
             No contracts. No initiation fees. Just pure iron access.
           </p>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
             {config.membershipPlans.map((plan) => (
               <motion.div
                 key={plan.id}
@@ -63,9 +63,9 @@ export default function MembershipPlans({ config }: MembershipPlansProps) {
                       )}
                     </div>
 
-                    <div className="flex items-baseline mb-6">
+                    <div className="flex items-end gap-2 mb-6 flex-wrap">
                       <span className="text-5xl font-extrabold text-red-400">
-                        ${plan.price}
+                         ₹{Number(plan.price).toLocaleString('en-IN')}
                       </span>
                       <span className="ml-2 text-xl text-gray-400">
                         {plan.pricePeriodText}
@@ -100,7 +100,7 @@ export default function MembershipPlans({ config }: MembershipPlansProps) {
                     </div>
 
                     {/* QR Code placeholder */}
-                    {plan.qrCodeData && (
+                    {/* {plan.qrCodeData && (
                       <div className="mt-6 text-center">
                         <div className="w-16 h-16 mx-auto bg-red-800/30 rounded flex items-center justify-center mb-3">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,7 +109,7 @@ export default function MembershipPlans({ config }: MembershipPlansProps) {
                         </div>
                         <p className="text-xs text-gray-500">Scan for instant access</p>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </motion.div>

@@ -151,7 +151,7 @@ export const siteConfig: SiteConfig = {
     {
       id: "daily-pass",
       name: "Daily Pass",
-      price: 20,
+      price: 34,
       period: "Daily",
       pricePeriodText: "/day",
       features: [
@@ -165,7 +165,7 @@ export const siteConfig: SiteConfig = {
     {
       id: "weekly-pass",
       name: "Weekly Pass",
-      price: 75,
+      price: 250,
       period: "Weekly",
       pricePeriodText: "/week",
       features: [
@@ -181,7 +181,7 @@ export const siteConfig: SiteConfig = {
     {
       id: "monthly-pass",
       name: "Monthly Pass",
-      price: 88,
+      price: 1000,
       period: "Monthly",
       pricePeriodText: "/month",
       features: [
@@ -196,7 +196,7 @@ export const siteConfig: SiteConfig = {
     {
       id: "annual-pass",
       name: "Annual Pass",
-      price: 720,
+      price: 11000,
       period: "Annual",
       pricePeriodText: "/year",
       features: [
