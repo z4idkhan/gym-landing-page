@@ -135,7 +135,7 @@ export const siteConfig: SiteConfig = {
   gymName: "Quads Gym",
   logo: "/images/gym/logo.jpg",
   themeColor: "#EF4444", // Red color for hardcore gym theme
-  whatsappNumber: "13125550123", // Example US number
+  whatsappNumber: "9956664093", // Example US number
   address: "123 Iron Street, Chicago, IL 60601",
   phone: "(312) 555-0123",
   email: "info@chicagoslegendaryhomeofiron.com",
