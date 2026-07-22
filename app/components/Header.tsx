@@ -23,29 +23,6 @@ export default function Header({ config }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Mobile menu functionality
-  useEffect(() => {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    // Close menu when clicking a link
-    if (mobileMenu) {
-      const handleLinkClick = () => {
-        setIsMobileMenuOpen(false);
-      };
-
-      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', handleLinkClick);
-      });
-
-      return () => {
-        mobileMenuLinks.forEach(link => {
-          link.removeEventListener('click', handleLinkClick);
-        });
-      };
-    }
-  }, []);
 
   return (
     <header
@@ -66,80 +43,190 @@ export default function Header({ config }: HeaderProps) {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            id="mobile-menu-button"
-            className={`${isMobileMenuOpen ? 'bg-gray-800' : ''} md:hidden flex items-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus-ring-offset-2 focus-ring-offset-gray-800 focus-ring-white`}
-            aria-controls="mobile-menu"
-            aria-expanded={isMobileMenuOpen}
-            aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <span className="sr-only">Open main menu</span>
-            {/* Hamburger icon */}
-            <svg className="block h-6 w-6 transform transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45' : ''}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            {/* Close icon */}
-            <svg className="hidden h-6 w-6 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+<button
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  className="md:hidden z-[60] p-2 text-white"
+  aria-label="Toggle Menu"
+>
+  {isMobileMenuOpen ? (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-7 w-7"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  ) : (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-7 w-7"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+  )}
+</button>
+
+          {/* Overlay */}
+{isMobileMenuOpen && (
+  <div
+    className="fixed inset-0 bg-black/60 z-40 md:hidden"
+    onClick={() => setIsMobileMenuOpen(false)}
+  />
+)}
 
           {/* Mobile Menu */}
-          <nav
-            id="mobile-menu"
-            className="md:hidden space-y-2 px-2 pt-2 pb-3"
-          >
-            <Link
-              href="/"
-              className={`block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 ${pathname === '/' ? 'bg-gray-800 text-red-200' : ''}`}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className={`block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 ${pathname === '/about' ? 'bg-gray-800 text-red-200' : ''}`}
-            >
-              About
-            </Link>
-            <Link
-              href="/gym-tour"
-              className={`block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 ${pathname === '/gym-tour' ? 'bg-gray-800 text-red-200' : ''}`}
-            >
-              Gym Tour
-            </Link>
-            <Link
-              href="/membership"
-              className={`block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 ${pathname === '/membership' ? 'bg-gray-800 text-red-200' : ''}`}
-            >
-              Membership Plans
-            </Link>
-            <Link
-              href="/trainers"
-              className={`block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 ${pathname === '/trainers' ? 'bg-gray-800 text-red-200' : ''}`}
-            >
-              Trainers
-            </Link>
-            <Link
-              href="/schedule"
-              className={`block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 ${pathname === '/schedule' ? 'bg-gray-800 text-red-200' : ''}`}
-            >
-              Class Schedule
-            </Link>
-            <Link
-              href="/transformations"
-              className={`block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 ${pathname === '/transformations' ? 'bg-gray-800 text-red-200' : ''}`}
-            >
-              Transformations
-            </Link>
-            <Link
-              href="/location"
-              className={`block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 ${pathname === '/location' ? 'bg-gray-800 text-red-200' : ''}`}
-            >
-              Location
-            </Link>
-          </nav>
+         <nav
+  className={`
+    fixed
+    top-0
+    right-0
+    h-screen
+    w-72
+    bg-gray-900
+    shadow-2xl
+    z-50
+    transform
+    transition-transform
+    duration-300
+    ease-in-out
+    ${
+      isMobileMenuOpen
+        ? "translate-x-0"
+        : "translate-x-full"
+    }
+    md:hidden
+  `}
+>
+  <div className="flex items-center justify-between p-5 border-b border-gray-700">
 
+    <h2 className="text-xl font-bold text-red-400">
+      {config.gymName}
+    </h2>
+
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-white text-3xl"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <div className="flex flex-col p-6 space-y-5">
+
+  <Link
+    href="/"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className={`block rounded-lg px-4 py-3 text-lg transition-colors ${
+      pathname === '/'
+        ? 'bg-red-600 text-white'
+        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+    }`}
+  >
+    Home
+  </Link>
+
+  <Link
+    href="/about"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className={`block rounded-lg px-4 py-3 text-lg transition-colors ${
+      pathname === '/about'
+        ? 'bg-red-600 text-white'
+        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+    }`}
+  >
+    About
+  </Link>
+
+  <Link
+    href="/gym-tour"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className={`block rounded-lg px-4 py-3 text-lg transition-colors ${
+      pathname === '/gym-tour'
+        ? 'bg-red-600 text-white'
+        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+    }`}
+  >
+    Gym Tour
+  </Link>
+
+  <Link
+    href="/membership"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className={`block rounded-lg px-4 py-3 text-lg transition-colors ${
+      pathname === '/membership'
+        ? 'bg-red-600 text-white'
+        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+    }`}
+  >
+    Membership Plans
+  </Link>
+
+  <Link
+    href="/trainers"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className={`block rounded-lg px-4 py-3 text-lg transition-colors ${
+      pathname === '/trainers'
+        ? 'bg-red-600 text-white'
+        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+    }`}
+  >
+    Trainers
+  </Link>
+
+  <Link
+    href="/schedule"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className={`block rounded-lg px-4 py-3 text-lg transition-colors ${
+      pathname === '/schedule'
+        ? 'bg-red-600 text-white'
+        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+    }`}
+  >
+    Class Schedule
+  </Link>
+
+  <Link
+    href="/transformations"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className={`block rounded-lg px-4 py-3 text-lg transition-colors ${
+      pathname === '/transformations'
+        ? 'bg-red-600 text-white'
+        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+    }`}
+  >
+    Transformations
+  </Link>
+
+  <Link
+    href="/location"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className={`block rounded-lg px-4 py-3 text-lg transition-colors ${
+      pathname === '/location'
+        ? 'bg-red-600 text-white'
+        : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+    }`}
+  >
+    Location
+  </Link>
+
+</div>
+</nav>
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex space-x-6">
             <Link
