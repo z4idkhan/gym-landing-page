@@ -135,7 +135,7 @@ export const siteConfig: SiteConfig = {
   gymName: "Quads Gym",
   logo: "/images/gym/logo.jpg",
   themeColor: "#EF4444", // Red color for hardcore gym theme
-  whatsappNumber: "32323232232", //               //Client ka number yaha daalo
+  whatsappNumber: "9555602722", //               //Client ka number yaha daalo
   address: "123 Iron Street, Chicago, IL 60601",
   phone: "(312) 555-0123",
   email: "info@chicagoslegendaryhomeofiron.com",
